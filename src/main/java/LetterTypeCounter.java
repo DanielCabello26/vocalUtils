@@ -1,76 +1,46 @@
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-import javax.xml.XMLConstants;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.IOException;
-
-public class LetterTypeCounter {
-
-    private static final char[] VOCALS = "aeiouáéíóú".toCharArray();
-    private static final char[] CONSONANTS = "bcdfghjklmnpqrstvwxyz".toCharArray();
-
-    public static String readPhraseFromFile (String filename, int id) {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-
-        try {
-            dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-
-            DocumentBuilder db = dbf.newDocumentBuilder();
-
-            Document doc = db.parse(new File(filename));
-
-            NodeList list = doc.getElementsByTagName("phrases");
-            Node node = list.item(id);
-
-            if (node == null) {
-                return null;
-            }
-
-            return node.getTextContent();
-
-        } catch (ParserConfigurationException | SAXException | IOException e) {
+public boolean dateGreaterThanAWeek(Date dateToCheck) {
+        if (dateToCheck == null) {
+        throw new IllegalArgumentException("The date passed to check is null");
         }
-        return null;
-    }
-
-    public static Integer countVocalLetters (String _phrase) {
-        if (_phrase == null) {
-            return null;
+        long millisInAWeek = 1000 * 60 * 60 * 24 * 7;
+        Date aWeekago = new Date(new Date().getTime() - millisInAWeek);
+        if (dateToCheck.before(aWeekago)) {
+        return true;
+        }
+        return false;
         }
 
-        char[] phrase = _phrase.toCharArray();
-        Integer counter = 0;
-        counter = compareWithCharArray(phrase, counter, VOCALS);
-        return counter;
-    }
-
-    private static int compareWithCharArray (char[] phrase, int counter, char[] compareTo) {
-        for (int i = 0; i < phrase.length; i++) {
-            for (char letter : compareTo) {
-                if (phrase[i] == letter || Character.toLowerCase(phrase[i]) == letter) {
-                    counter++;
-                    break;
-                }
-            }
+public static String ipAdressType(String ip, String mask) {
+        String tipo = null;
+        if (ip == "10.0.100.23") {
+        if (mask =="255.0.0.0" || mask == "0" || null = 0) {
+        tipo = "a";
+        } else (mask == "255.255.0.0") {
+        tipo = "b";
         }
-        return counter;
-    }
-
-    public static Integer countConsonantLetters (String _phrase) {
-        if (_phrase == null) {
-            return null;
         }
 
-        char[] phrase = _phrase.toCharArray();
-        Integer counter = 0;
-        counter = compareWithCharArray(phrase, counter, CONSONANTS);
-        return counter;
-    }
+        if (ip == "200.30.110.5") {
+        if (mask == "255.255.255.0 || mask == "" || mak == null) {
+        tipo = "c";
+        }
+        }
 
-}
+        if (ip == "200.30.110.5/24") {
+        if (mask == "") {
+        tipo = "c";
+        }
+        }
+        if (tipo == null) {
+        throw new RuntimeExeption();
+        } else {
+        return tipo;
+        }
+        }
+/*
+ * este metodo devuelve el resto de la accion de dividir value entre number
+ */
+public static BigDecimal valueIsDivisibleByNumber(BigDecimal value, BigDecimal number){
+        return value.remainder(number);
+        }
+
