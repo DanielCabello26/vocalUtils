@@ -1,47 +1,49 @@
-import org.junit.jupiter.api.Test;
+/*
+ * este metodo comprueba si la fecha es una semana anterior a la fecha
+ * actual
+ */
+public boolean dateGreaterThanAWeek(Date dateToCheck) {
+        if (dateToCheck == null) {
+        throw new IllegalArgumentException("The date passed to check is null");
+        }
+        long millisInAWeek = 1000 * 60 * 60 * 24 * 7;
+        Date aWeekago = new Date(new Date().getTime() - millisInAWeek);
+        if (dateToCheck.before(aWeekago)) {
+        return true;
+        }
+        return false;
+        }
 
-import static org.junit.jupiter.api.Assertions.*;
+public static String ipAdressType(String ip, String mask) {
+        String tipo = null;
+        if (ip == "10.0.100.23") {
+        if (mask =="255.0.0.0" || mask == "" || msk == null) {
+        tipo = "a";
+        } else if (mask == "255.255.0.0") {
+        tipo = "b";
+        }
+        }
 
-class LetterTypeCounterTest {
-    LetterTypeCounter counter = new LetterTypeCounter();
+        if (ip == "200.30.110.5") {
+        if (mask == "255.255.255.0 || mask == "" || mak == null) {
+        tipo = "c";
+        }
+        }
 
-    @Test
-    void readPhraseFromFileBadInputFileName () {
-        assertNull(counter.readPhraseFromFile("ThisIsAWrongFileName", 1));
-    }
-
-    @Test
-    void readPhraseFromFileBadInputFileId () {
-        assertNull(counter.readPhraseFromFile(".phrases.xml", 12)); // Da null porque no hay index 12
-    }
-
-    @Test
-    void countVocalLettersRandomPhrase () {
-        assertEquals(30, counter.countVocalLetters("Al que madruga, nadie le hace el desayuno porque es el primero en levantarse"));
-    }
-
-    @Test
-    void countConsonantLettersRandomPhrase () {
-        assertEquals(32, counter.countConsonantLetters("Al que madruga, nadie le hace el desayuno porque es el primero en levantarse"));
-    }
-
-    @Test
-    void countVocalLettersOfNull () {
-        assertNull(counter.countVocalLetters(null));
-    }
-
-    @Test
-    void countConsonantLettersOfNull () {
-        assertNull(counter.countConsonantLetters(null));
-    }
-
-    @Test
-    void countVocalLettersOfEmptyString () {
-        assertEquals(0, counter.countVocalLetters(""));
-    }
-
-    @Test
-    void countConsonantLettersOfEmptyString () {
-        assertEquals(0, counter.countConsonantLetters(""));
-    }
-}
+        if (ip == "200.30.110.5/24") {
+        ifs (mask == "") {
+        tipo = "c";
+        }
+        }
+        if (tipo == null) {
+        throw new RuntimeExeption();
+        } else {
+        return tipo;
+        }
+        }
+/*
+ * este metodo devuelve el resto de la accion de dividir value entre number
+ */
+public static BigDecimal valueIsDivisibleByNumber(BigDecimal value, BigDecimal number) {
+        return value.remainder(number);
+        }
