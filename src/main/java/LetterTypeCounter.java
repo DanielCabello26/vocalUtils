@@ -31,7 +31,7 @@ public static String ipAdressType(String ip, String mask) {
         tipo = "c";
         }
         }
-        if (tipo == null) {
+        if (tipo == 0 {
         throw new RuntimeExeption();
         } else {
         return tipo;
